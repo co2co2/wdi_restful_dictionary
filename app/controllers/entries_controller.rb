@@ -1,14 +1,15 @@
 class EntriesController < ApplicationController
   def index
-    render :index
+    @entries = Entry.all
+    # render :index
   end
 
   def show
-    render :show
+    # render :show
   end
 
   def new
-    render :new
+    # render :new
   end
 
   def create
@@ -16,7 +17,8 @@ class EntriesController < ApplicationController
   end
 
   def edit
-    render :edit
+    @entry = Entry.find_by(id: params[:id])
+    # render :edit
   end
 
   def update
@@ -25,5 +27,5 @@ class EntriesController < ApplicationController
 
   def destroy
     redirect_to index_url
-  end 
+  end
 end
